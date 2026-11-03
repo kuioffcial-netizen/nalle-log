@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nalle Log Pvt. Ltd. 🥂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Outfit',sans-serif;
+    background:#080611;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-50%;
+    z-index:-2;
+    background:conic-gradient(#ff00cc,#5500ff,#00eaff,#ffb6e6,#7700ff,#ff00cc);
+    filter:blur(130px);
+    opacity:.28;
+    animation:holo 15s linear infinite;
+}
+
+@keyframes holo{
+    to{transform:rotate(360deg)}
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background-image:radial-gradient(white .7px,transparent .7px);
+    background-size:35px 35px;
+    opacity:.12;
+}
+
+.hidden{display:none!important}
+
+.login{
+    max-width:420px;
+    width:90%;
+    margin:12vh auto;
+    padding:40px 30px;
+    text-align:center;
+    border:1px solid #ffffff30;
+    border-radius:25px;
+    background:#ffffff0d;
+    backdrop-filter:blur(25px);
+    box-shadow:0 0 50px #bc43ff30;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:800;
+    background:linear-gradient(90deg,#ff64d8,#a66cff,#68f3ff);
+    color:transparent;
+    background-clip:text;
+}
+
+.subtitle{
+    color:#b9a9cc;
+    letter-spacing:4px;
+    font-size:11px;
+    margin:12px 0 25px;
+}
+
+input{
+    display:block;
+    width:100%;
+    margin:12px 0;
+    padding:15px;
+    border:1px solid #ffffff30;
+    border-radius:12px;
+    background:#ffffff10;
+    color:white;
+    outline:none;
+}
+
+button{
+    border:none;
+    padding:13px 22px;
+    border-radius:12px;
+    color:white;
+    font-weight:700;
+    font-family:inherit;
+    background:linear-gradient(100deg,#a34dff,#ff55bf);
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 22px #ff55bf77;
+}
+
+.login button{width:100%;margin-top:12px}
+
+#error{color:#ff83ae;margin-top:15px}
+
+header{
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ffffff20;
+    background:#ffffff08;
+    backdrop-filter:blur(20px);
+    position:sticky;
+    top:0;
+    z-index:5;
+}
+
+header .logo{font-size:22px}
+
+main{
+    max-width:1050px;
+    margin:auto;
+    padding:45px 22px;
+}
+
+.hero{
+    text-align:center;
+    padding:50px 10px;
+}
+
+.hero h1{
+    font-size:clamp(38px,7vw,68px);
+    line-height:1.2;
+    background:linear-gradient(90deg,#ff70d9,#b68bff,#73f3ff);
+    color:transparent;
+    background-clip:text;
+}
+
+.hero p{color:#c9b9d9;margin-top:15px}
+
+.tag{
+    display:inline-block;
+    border:1px solid #ff64d855;
+    color:#ff9be8;
+    padding:8px 17px;
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.section{
+    padding:28px;
+    margin:25px 0;
+    border:1px solid #ffffff20;
+    background:#ffffff0c;
+    backdrop-filter:blur(15px);
+    border-radius:22px;
+}
+
+.section h2{
+    color:#ff9de8;
+    margin-bottom:22px;
+    font-size:23px;
+}
+
+.members{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.member{
+    text-align:center;
+    padding:24px 12px;
+    border-radius:17px;
+    border:1px solid #ffffff20;
+    background:linear-gradient(145deg,#ff64d815,#a66cff15);
+    transition:.3s;
+}
+
+.member:hover{
+    transform:translateY(-6px);
+    border-color:#ff64d8aa;
+    box-shadow:0 0 20px #ff64d822;
+}
+
+.avatar{font-size:35px;margin-bottom:12px}
+.member h3{font-size:16px}
+.member small{display:block;color:#bba9d0;margin-top:7px}
+
+.rules{list-style:none}
+
+.rules li{
+    padding:13px 0;
+    border-bottom:1px solid #ffffff12;
+    color:#e4d9ef;
+    line-height:1.6;
+}
+
+.announcement{
+    padding:17px;
+    background:#ff64d810;
+    border-left:3px solid #ff64d8;
+    border-radius:10px;
+    color:#e8d9f5;
+}
+
+.motto{
+    text-align:center;
+    padding:30px 10px;
+    font-size:24px;
+    font-weight:700;
+    color:#ff9de8;
+}
+
+footer{
+    text-align:center;
+    color:#82718f;
+    font-size:12px;
+    padding:25px;
+}
+
+@media(max-width:500px){
+    header{padding:18px 5%}
+    header .logo{font-size:17px}
+    .section{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="login" id="login">
+    <div class="logo">𓆩♡𓆪 NALLE LOG</div>
+    <div class="subtitle">PRIVATE MEMBERS CLUB</div>
+
+    <p style="color:#c9b9d9;margin-bottom:20px">
+        Only legends are allowed here 🥂
+    </p>
+
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()">ENTER THE GC ✨</button>
+    <p id="error"></p>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="website" class="hidden">
+
+<header>
+    <div class="logo">NALLE LOG 🥂</div>
+    <button onclick="logout()">LOG OUT ↗</button>
+</header>
+
+<main>
+
+<div class="hero">
+    <span class="tag">✦ EST. 2026 ✦</span>
+    <h1>Nalle Log<br>Pvt. Ltd.</h1>
+    <p>One GC. Five legends. Unlimited chaos. 🎀</p>
+</div>
+
+<!-- MEMBERS -->
+<section class="section">
+    <h2>👑 Official Members</h2>
+
+    <div class="members">
+
+        <div class="member">
+            <div class="avatar">🌟</div>
+            <h3>SHORYA</h3>
+            <small>Founder & Legend 👑</small>
+        </div>
+
+        <div class="member">
+            <div class="avatar">🦋</div>
+            <h3>SHUBUU</h3>
+            <small>Official Member</small>
+        </div>
+
+        <div class="member">
+            <div class="avatar">⚡</div>
+            <h3>AVI</h3>
+            <small>Official Member</small>
+        </div>
+
+        <div class="member">
+            <div class="avatar">🌙</div>
+            <h3>JISSUP</h3>
+            <small>Official Member</small>
+        </div>
+
+        <div class="member">
+            <div class="avatar">🎀</div>
+            <h3>HAZEL</h3>
+            <small>Official Member</small>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+    <h2>♡ About Our GC</h2>
+    <p style="line-height:1.9;color:#d6c8e8">
+        Welcome to Nalle Log Pvt. Ltd.! 💗<br>
+        A little corner of the internet for friendship,
+        memories, random conversations and unlimited
+        bakchodi. We are not normal. We are NALLE. 😭
+    </p>
+</section>
+
+<!-- RULES -->
+<section class="section">
+    <h2>📜 Official GC Rules</h2>
+
+    <ul class="rules">
+        <li>📵 No video calls if someone says NO.</li>
+        <li>🤐 No gali-galoch or unnecessary bad language.</li>
+        <li>💅 No show-off or unnecessary flexing.</li>
+        <li>🫶 Respect everyone in the GC.</li>
+        <li>🔒 Never leak private chats or screenshots.</li>
+        <li>😂 Masti is allowed, but don't cross limits.</li>
+        <li>🧿 No unnecessary drama or fights.</li>
+        <li>💬 Don't force anyone to reply.</li>
+        <li>🎀 No bullying or targeting members.</li>
+        <li>👑 Respect the admins.</li>
+    </ul>
+</section>
+
+<!-- ANNOUNCEMENTS -->
+<section class="section">
+    <h2>💌 Announcements</h2>
+
+    <div class="announcement">
+        ✨ Welcome to the official Nalle Log website!
+        More chaos coming soon. Stay tuned 😭
+    </div>
+</section>
+
+<div class="motto">
+    𓆩♡𓆪 Stay nalla, stay loyal. 🥂
+</div>
+
+</main>
+
+<footer>
+    © 2026 NALLE LOG PVT. LTD.<br><br>
+    MADE WITH 💗 AND CHAOS
+</footer>
+
+</div>
+
+<script>
+const USERNAME = "NALLELOG";
+const PASSWORD = "HELLOBKL";
+
+function login(){
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value;
+
+    if(user === USERNAME && pass === PASSWORD){
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("website").classList.remove("hidden");
+        document.getElementById("error").textContent = "";
+    }else{
+        document.getElementById("error").textContent =
+            "Wrong username or password 😭";
+    }
+}
+
+function logout(){
+    document.getElementById("website").classList.add("hidden");
+    document.getElementById("login").classList.remove("hidden");
+    document.getElementById("password").value = "";
+}
+
+document.addEventListener("keydown",function(event){
+    if(event.key === "Enter" &&
+       !document.getElementById("login").classList.contains("hidden")){
+        login();
+    }
+});
+</script>
+
+</body>
+</html>
