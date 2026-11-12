@@ -5,389 +5,460 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nalle Log Pvt. Ltd. 🥂</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    font-family:'Outfit',sans-serif;
-    background:#080611;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
+font-family:'Outfit',sans-serif;
+background:#080611;color:white;min-height:100vh;overflow-x:hidden
 }
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:-50%;
-    z-index:-2;
-    background:conic-gradient(#ff00cc,#5500ff,#00eaff,#ffb6e6,#7700ff,#ff00cc);
-    filter:blur(130px);
-    opacity:.28;
-    animation:holo 15s linear infinite;
+content:"";position:fixed;inset:-50%;z-index:-2;
+background:conic-gradient(#ff00cc,#5500ff,#00eaff,#ffb6e6,#7700ff,#ff00cc);
+filter:blur(130px);opacity:.28;animation:holo 15s linear infinite
 }
-
-@keyframes holo{
-    to{transform:rotate(360deg)}
-}
+@keyframes holo{to{transform:rotate(360deg)}}
 
 body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    pointer-events:none;
-    background-image:radial-gradient(white .7px,transparent .7px);
-    background-size:35px 35px;
-    opacity:.12;
+content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background-image:radial-gradient(white .7px,transparent .7px);
+background-size:35px 35px;opacity:.12
 }
 
-.hidden{display:none!important}
-
-.login{
-    max-width:420px;
-    width:90%;
-    margin:12vh auto;
-    padding:40px 30px;
-    text-align:center;
-    border:1px solid #ffffff30;
-    border-radius:25px;
-    background:#ffffff0d;
-    backdrop-filter:blur(25px);
-    box-shadow:0 0 50px #bc43ff30;
+header{
+padding:22px 7%;display:flex;justify-content:space-between;
+align-items:center;border-bottom:1px solid #ffffff20;
+background:#ffffff08;backdrop-filter:blur(20px);
+position:sticky;top:0;z-index:5
 }
 
 .logo{
-    font-size:34px;
-    font-weight:800;
-    background:linear-gradient(90deg,#ff64d8,#a66cff,#68f3ff);
-    color:transparent;
-    background-clip:text;
-}
-
-.subtitle{
-    color:#b9a9cc;
-    letter-spacing:4px;
-    font-size:11px;
-    margin:12px 0 25px;
-}
-
-input{
-    display:block;
-    width:100%;
-    margin:12px 0;
-    padding:15px;
-    border:1px solid #ffffff30;
-    border-radius:12px;
-    background:#ffffff10;
-    color:white;
-    outline:none;
-}
-
-button{
-    border:none;
-    padding:13px 22px;
-    border-radius:12px;
-    color:white;
-    font-weight:700;
-    font-family:inherit;
-    background:linear-gradient(100deg,#a34dff,#ff55bf);
-    cursor:pointer;
-    transition:.25s;
-}
-
-button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 22px #ff55bf77;
-}
-
-.login button{width:100%;margin-top:12px}
-
-#error{color:#ff83ae;margin-top:15px}
-
-header{
-    padding:22px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid #ffffff20;
-    background:#ffffff08;
-    backdrop-filter:blur(20px);
-    position:sticky;
-    top:0;
-    z-index:5;
+font-size:25px;font-weight:800;
+background:linear-gradient(90deg,#ff64d8,#a66cff,#68f3ff);
+color:transparent;background-clip:text
 }
 
 header .logo{font-size:22px}
 
-main{
-    max-width:1050px;
-    margin:auto;
-    padding:45px 22px;
-}
+main{max-width:1050px;margin:auto;padding:45px 22px}
 
-.hero{
-    text-align:center;
-    padding:50px 10px;
-}
-
+.hero{text-align:center;padding:50px 10px}
 .hero h1{
-    font-size:clamp(38px,7vw,68px);
-    line-height:1.2;
-    background:linear-gradient(90deg,#ff70d9,#b68bff,#73f3ff);
-    color:transparent;
-    background-clip:text;
+font-size:clamp(38px,7vw,68px);line-height:1.2;
+background:linear-gradient(90deg,#ff70d9,#b68bff,#73f3ff);
+color:transparent;background-clip:text
 }
-
 .hero p{color:#c9b9d9;margin-top:15px}
 
 .tag{
-    display:inline-block;
-    border:1px solid #ff64d855;
-    color:#ff9be8;
-    padding:8px 17px;
-    border-radius:30px;
-    font-size:12px;
-    margin-bottom:20px;
+display:inline-block;border:1px solid #ff64d855;color:#ff9be8;
+padding:8px 17px;border-radius:30px;font-size:12px;margin-bottom:20px
 }
 
 .section{
-    padding:28px;
-    margin:25px 0;
-    border:1px solid #ffffff20;
-    background:#ffffff0c;
-    backdrop-filter:blur(15px);
-    border-radius:22px;
+padding:28px;margin:25px 0;border:1px solid #ffffff20;
+background:#ffffff0c;backdrop-filter:blur(15px);border-radius:22px
 }
 
-.section h2{
-    color:#ff9de8;
-    margin-bottom:22px;
-    font-size:23px;
-}
+.section h2{color:#ff9de8;margin-bottom:22px;font-size:23px}
 
 .members{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:15px;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px
 }
 
 .member{
-    text-align:center;
-    padding:24px 12px;
-    border-radius:17px;
-    border:1px solid #ffffff20;
-    background:linear-gradient(145deg,#ff64d815,#a66cff15);
-    transition:.3s;
+text-align:center;padding:24px 12px;border-radius:17px;
+border:1px solid #ffffff20;
+background:linear-gradient(145deg,#ff64d815,#a66cff15);
+transition:.3s
 }
 
 .member:hover{
-    transform:translateY(-6px);
-    border-color:#ff64d8aa;
-    box-shadow:0 0 20px #ff64d822;
+transform:translateY(-6px);border-color:#ff64d8aa;
+box-shadow:0 0 20px #ff64d822
 }
 
 .avatar{font-size:35px;margin-bottom:12px}
-.member h3{font-size:16px}
+.member h3{font-size:16px;overflow-wrap:anywhere}
 .member small{display:block;color:#bba9d0;margin-top:7px}
 
 .rules{list-style:none}
-
 .rules li{
-    padding:13px 0;
-    border-bottom:1px solid #ffffff12;
-    color:#e4d9ef;
-    line-height:1.6;
+padding:13px 0;border-bottom:1px solid #ffffff12;
+color:#e4d9ef;line-height:1.6
 }
 
 .announcement{
-    padding:17px;
-    background:#ff64d810;
-    border-left:3px solid #ff64d8;
-    border-radius:10px;
-    color:#e8d9f5;
+padding:17px;background:#ff64d810;
+border-left:3px solid #ff64d8;border-radius:10px;color:#e8d9f5
 }
 
 .motto{
-    text-align:center;
-    padding:30px 10px;
-    font-size:24px;
-    font-weight:700;
-    color:#ff9de8;
+text-align:center;padding:30px 10px;
+font-size:24px;font-weight:700;color:#ff9de8
 }
 
-footer{
-    text-align:center;
-    color:#82718f;
-    font-size:12px;
-    padding:25px;
+footer{text-align:center;color:#82718f;font-size:12px;padding:25px}
+
+/* NALLE AI */
+.ai-section{
+border:1px solid #d56aff55;
+background:linear-gradient(145deg,#9e3aff13,#ff55bf10);
+box-shadow:0 0 35px #b44aff12
 }
+
+.ai-heading{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ai-icon{
+width:48px;height:48px;border-radius:15px;
+display:grid;place-items:center;font-size:25px;
+background:linear-gradient(135deg,#a34dff,#ff55bf);
+box-shadow:0 0 20px #bd4dff55
+}
+
+.ai-heading h2{margin:0}
+.online{font-size:11px;color:#78ffc0;margin-top:5px}
+
+.chatbox{
+height:310px;overflow-y:auto;padding:15px;
+border:1px solid #ffffff18;border-radius:15px;
+background:#08061188;margin-bottom:15px;
+display:flex;flex-direction:column;gap:12px
+}
+
+.message{
+max-width:85%;padding:12px 15px;border-radius:15px;
+font-size:14px;line-height:1.6;overflow-wrap:anywhere;
+white-space:pre-wrap
+}
+
+.bot{
+align-self:flex-start;background:#a34dff25;
+border:1px solid #a34dff55;border-bottom-left-radius:4px
+}
+
+.user{
+align-self:flex-end;background:#ff55bf25;
+border:1px solid #ff55bf55;border-bottom-right-radius:4px
+}
+
+.chat-label{
+font-size:10px;color:#c5a6dc;display:block;margin-bottom:4px
+}
+
+.ai-input-row{display:flex;gap:10px}
+.ai-input-row input{
+margin:0;min-width:0;flex:1;padding:14px;
+border:1px solid #ffffff30;border-radius:12px;
+background:#ffffff10;color:white;outline:none;font-family:inherit
+}
+
+button{
+border:none;padding:13px 20px;border-radius:12px;color:white;
+font-weight:700;font-family:inherit;
+background:linear-gradient(100deg,#a34dff,#ff55bf);
+cursor:pointer;transition:.25s
+}
+button:hover{transform:translateY(-3px);box-shadow:0 0 22px #ff55bf77}
+
+.quick-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.quick-buttons button{
+font-size:11px;padding:9px 12px;
+background:#ffffff12;border:1px solid #ffffff25
+}
+
+.ai-note{font-size:11px;color:#a995b9;margin-top:13px;line-height:1.5}
 
 @media(max-width:500px){
-    header{padding:18px 5%}
-    header .logo{font-size:17px}
-    .section{padding:20px}
+header{padding:18px 5%}
+header .logo{font-size:17px}
+.section{padding:20px}
+.ai-input-row button{padding:12px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN PAGE -->
-<div class="login" id="login">
-    <div class="logo">𓆩♡𓆪 NALLE LOG</div>
-    <div class="subtitle">PRIVATE MEMBERS CLUB</div>
-
-    <p style="color:#c9b9d9;margin-bottom:20px">
-        Only legends are allowed here 🥂
-    </p>
-
-    <input id="username" placeholder="Username">
-    <input id="password" type="password" placeholder="Password">
-
-    <button onclick="login()">ENTER THE GC ✨</button>
-    <p id="error"></p>
-</div>
-
-<!-- MAIN WEBSITE -->
-<div id="website" class="hidden">
+<!-- MAIN WEBSITE: NO LOGIN -->
 
 <header>
-    <div class="logo">NALLE LOG 🥂</div>
-    <button onclick="logout()">LOG OUT ↗</button>
+<div class="logo">NALLE LOG 🥂</div>
+<span style="color:#78ffc0;font-size:12px">● PUBLIC WEBSITE</span>
 </header>
 
 <main>
 
 <div class="hero">
-    <span class="tag">✦ EST. 2026 ✦</span>
-    <h1>Nalle Log<br>Pvt. Ltd.</h1>
-    <p>One GC. Five legends. Unlimited chaos. 🎀</p>
+<span class="tag">✦ EST. 2026 ✦</span>
+<h1>Nalle Log<br>Pvt. Ltd.</h1>
+<p>One GC. Seven legends. Unlimited chaos. 🎀</p>
 </div>
 
 <!-- MEMBERS -->
 <section class="section">
-    <h2>👑 Official Members</h2>
+<h2>👑 Official Members</h2>
 
-    <div class="members">
+<div class="members">
 
-        <div class="member">
-            <div class="avatar">🌟</div>
-            <h3>SHORYA</h3>
-            <small>Founder & Legend 👑</small>
-        </div>
+<div class="member">
+<div class="avatar">🌟</div>
+<h3>SHORYA</h3>
+<small>Founder & Legend 👑</small>
+</div>
 
-        <div class="member">
-            <div class="avatar">🦋</div>
-            <h3>SHUBUU</h3>
-            <small>Official Member</small>
-        </div>
+<div class="member">
+<div class="avatar">🦋</div>
+<h3>SHUBUU</h3>
+<small>Official Member</small>
+</div>
 
-        <div class="member">
-            <div class="avatar">⚡</div>
-            <h3>AVI</h3>
-            <small>Official Member</small>
-        </div>
+<div class="member">
+<div class="avatar">⚡</div>
+<h3>AVI</h3>
+<small>Official Member</small>
+</div>
 
-        <div class="member">
-            <div class="avatar">🌙</div>
-            <h3>JISSUP</h3>
-            <small>Official Member</small>
-        </div>
+<div class="member">
+<div class="avatar">🌙</div>
+<h3>JISSUP</h3>
+<small>Official Member</small>
+</div>
 
-        <div class="member">
-            <div class="avatar">🎀</div>
-            <h3>HAZEL</h3>
-            <small>Official Member</small>
-        </div>
+<div class="member">
+<div class="avatar">🎀</div>
+<h3>HAZEL</h3>
+<small>Official Member</small>
+</div>
 
-    </div>
+<div class="member">
+<div class="avatar">⚡</div>
+<h3>YOURBOI YURVAJJJJ</h3>
+<small>New Official Member 🥂</small>
+</div>
+
+<div class="member">
+<div class="avatar">🐻</div>
+<h3>KHATIK</h3>
+<small>New Official Member 🎀</small>
+</div>
+
+</div>
+</section>
+
+<!-- NALLE AI -->
+<section class="section ai-section" id="nalleAI">
+
+<div class="ai-heading">
+<div class="ai-icon">🤖</div>
+<div>
+<h2>NALLE AI</h2>
+<div class="online">● ONLINE · OFFLINE MINI AI</div>
+</div>
+</div>
+
+<div class="chatbox" id="chatbox" aria-live="polite">
+<div class="message bot">
+<span class="chat-label">🤖 NALLE AI</span>
+Hellowww! Welcome to NALLE AI 😭💗
+
+I'm the official AI of Nalle Log. Ask me about members, GC rules, or just talk bakchodi with me!
+</div>
+</div>
+
+<div class="ai-input-row">
+<input id="aiInput" placeholder="Ask NALLE AI something..." maxlength="300">
+<button onclick="sendMessage()">SEND ↗</button>
+</div>
+
+<div class="quick-buttons">
+<button onclick="quickAsk('Who is the owner?')">👑 Owner?</button>
+<button onclick="quickAsk('Who are the members?')">👥 Members</button>
+<button onclick="quickAsk('Tell me a joke')">😂 Joke</button>
+<button onclick="quickAsk('What is Nalle Log?')">💗 About GC</button>
+<button onclick="quickAsk('Help')">❓ Help</button>
+</div>
+
+<p class="ai-note">
+⚡ NALLE AI uses programmed replies and works offline after the page loads. No API key required.
+</p>
+
 </section>
 
 <!-- ABOUT -->
 <section class="section">
-    <h2>♡ About Our GC</h2>
-    <p style="line-height:1.9;color:#d6c8e8">
-        Welcome to Nalle Log Pvt. Ltd.! 💗<br>
-        A little corner of the internet for friendship,
-        memories, random conversations and unlimited
-        bakchodi. We are not normal. We are NALLE. 😭
-    </p>
+<h2>♡ About Our GC</h2>
+<p style="line-height:1.9;color:#d6c8e8">
+Welcome to Nalle Log Pvt. Ltd.! 💗<br>
+A little corner of the internet for friendship,
+memories, random conversations and unlimited
+bakchodi. We are not normal. We are NALLE. 😭
+</p>
 </section>
 
 <!-- RULES -->
 <section class="section">
-    <h2>📜 Official GC Rules</h2>
+<h2>📜 Official GC Rules</h2>
 
-    <ul class="rules">
-        <li>📵 No video calls if someone says NO.</li>
-        <li>🤐 No gali-galoch or unnecessary bad language.</li>
-        <li>💅 No show-off or unnecessary flexing.</li>
-        <li>🫶 Respect everyone in the GC.</li>
-        <li>🔒 Never leak private chats or screenshots.</li>
-        <li>😂 Masti is allowed, but don't cross limits.</li>
-        <li>🧿 No unnecessary drama or fights.</li>
-        <li>💬 Don't force anyone to reply.</li>
-        <li>🎀 No bullying or targeting members.</li>
-        <li>👑 Respect the admins.</li>
-    </ul>
+<ul class="rules">
+<li>📵 No video calls if someone says NO.</li>
+<li>🤐 No gali-galoch or unnecessary bad language.</li>
+<li>💅 No show-off or unnecessary flexing.</li>
+<li>🫶 Respect everyone in the GC.</li>
+<li>🔒 Never leak private chats or screenshots.</li>
+<li>😂 Masti is allowed, but don't cross limits.</li>
+<li>🧿 No unnecessary drama or fights.</li>
+<li>💬 Don't force anyone to reply.</li>
+<li>🎀 No bullying or targeting members.</li>
+<li>👑 Respect the admins.</li>
+</ul>
 </section>
 
 <!-- ANNOUNCEMENTS -->
 <section class="section">
-    <h2>💌 Announcements</h2>
+<h2>💌 Announcements</h2>
 
-    <div class="announcement">
-        ✨ Welcome to the official Nalle Log website!
-        More chaos coming soon. Stay tuned 😭
-    </div>
+<div class="announcement">
+✨ Welcome to the official Nalle Log website!
+More chaos coming soon. Stay tuned 😭
+</div>
 </section>
 
 <div class="motto">
-    𓆩♡𓆪 Stay nalla, stay loyal. 🥂
+𓆩♡𓆪 Stay nalla, stay loyal. 🥂
 </div>
 
 </main>
 
 <footer>
-    © 2026 NALLE LOG PVT. LTD.<br><br>
-    MADE WITH 💗 AND CHAOS
+© 2026 NALLE LOG PVT. LTD.<br><br>
+MADE WITH 💗 AND CHAOS
 </footer>
 
-</div>
-
 <script>
-const USERNAME = "NALLELOG";
-const PASSWORD = "HELLOBKL";
+const chatbox=document.getElementById("chatbox");
+const aiInput=document.getElementById("aiInput");
 
-function login(){
-    const user = document.getElementById("username").value.trim();
-    const pass = document.getElementById("password").value;
+function addMessage(message,type){
+const div=document.createElement("div");
+div.className="message "+type;
 
-    if(user === USERNAME && pass === PASSWORD){
-        document.getElementById("login").classList.add("hidden");
-        document.getElementById("website").classList.remove("hidden");
-        document.getElementById("error").textContent = "";
-    }else{
-        document.getElementById("error").textContent =
-            "Wrong username or password 😭";
-    }
+const label=document.createElement("span");
+label.className="chat-label";
+label.textContent=type==="bot"?"🤖 NALLE AI":"YOU";
+
+const content=document.createElement("span");
+content.textContent=message;
+
+div.appendChild(label);
+div.appendChild(content);
+chatbox.appendChild(div);
+chatbox.scrollTop=chatbox.scrollHeight;
 }
 
-function logout(){
-    document.getElementById("website").classList.add("hidden");
-    document.getElementById("login").classList.remove("hidden");
-    document.getElementById("password").value = "";
+function getAIReply(raw){
+const msg=raw.toLowerCase().trim();
+const has=words=>words.some(word=>msg.includes(word));
+
+if(has(["hello","hii","hey","helo","helloo","hiii","wassup"]))
+return "HEYYYY NALLE LEGENDDD 😭💗 Kya haal hai? Ready for some bakchodi?";
+
+if(has(["who are you","your name","what are you"]))
+return "I am NALLE AI 🤖💗 The digital member of Nalle Log Pvt. Ltd.!";
+
+if(has(["owner","founder","who made","admin"]))
+return "OUR FOUNDER IS SHORYA 👑 The boss of Nalle Log!";
+
+if(has(["member","members","who is in","people in gc"]))
+return "Our 7 official members are:\n🌟 Shorya\n🦋 Shubuu\n⚡ Avi\n🌙 Jissup\n🎀 Hazel\n⚡ Yourboi Yurvajjjj\n🐻 Khatik\n\nSEVEN LEGENDS. ONE GC. 😭";
+
+if(has(["yurvaj","yourboi","yurv"]))
+return "YOURBOI YURVAJJJJ ⚡ is one of our new official members! Welcome to the chaos 😭";
+
+if(has(["khatik"]))
+return "KHATIK 🐻 is one of our new official members!";
+
+if(has(["shubuu","shubu"]))
+return "SHUBUU 🦋 — an official Nalle Log member!";
+
+if(has(["hazel"]))
+return "HAZEL 🎀 — an official Nalle Log member!";
+
+if(has(["avi"]))
+return "AVI ⚡ — an official Nalle Log member!";
+
+if(has(["jissup"]))
+return "JISSUP 🌙 — an official Nalle Log member!";
+
+if(has(["shorya"]))
+return "SHORYA 🌟 The founder, legend and owner of Nalle Log Pvt. Ltd. 👑";
+
+if(has(["nalle log","about gc","what is this gc","what is nalle"]))
+return "Nalle Log Pvt. Ltd. 🥂 is a friendship GC full of memories, random conversations and unlimited chaos. Stay nalla, stay loyal!";
+
+if(has(["joke","funny","make me laugh"])){
+const jokes=[
+"Why did WiFi join Nalle Log? Because it wanted unlimited connections. 😭",
+"GC attendance: 0 replies, 100 online members. 💀",
+"Teacher: Be serious. Nalle Log: Sorry, wrong group. 😭",
+"Why is Nalle Log famous? Even silence here has drama. 💅"
+];
+return jokes[Math.floor(Math.random()*jokes.length)];
 }
 
-document.addEventListener("keydown",function(event){
-    if(event.key === "Enter" &&
-       !document.getElementById("login").classList.contains("hidden")){
-        login();
-    }
+if(has(["rule","rules"]))
+return "GC RULES 📜\n1. Respect everyone 🫶\n2. No unwanted video calls 📵\n3. No show-off 💅\n4. No leaking private chats 🔒\n5. No bullying 🎀\n6. Respect admins 👑";
+
+if(has(["thank","thanks","thx"]))
+return "AREEEE WELCOME 😭💗 Nalle AI is always ready!";
+
+if(has(["bye","goodbye","gn","good night"]))
+return "BYEEEE NALLE LEGEND 😭👋 Take care!";
+
+if(has(["how are you","kaisa","kaisi ho","kaise ho"]))
+return "I'm running at 100% NALLE ENERGY ⚡😭 What about you?";
+
+if(has(["help","what can you do"]))
+return "I can:\n👑 Tell you who owns the GC\n👥 List all members\n🎀 Tell you about members\n😂 Tell jokes\n📜 Explain GC rules\n💗 Chat with you!\n\nTry asking me something!";
+
+if(has(["love","cute","pookie"]))
+return "AWWW 😭💗 NALLE LOG IS FULL OF CUTIE POOKIES!";
+
+if(has(["time","date","today"]))
+return "Today's date is "+new Date().toLocaleDateString()+" 📅";
+
+if(has(["roblox"]))
+return "ROBLOX MENTIONEDDDD 🎮😭 Nalle Log gaming squad when?";
+
+if(has(["instagram","insta","website"]))
+return "Welcome to the Nalle Log website! 💗 Our official little corner of chaos.";
+
+return "AREEEE 😭 I don't know that one yet! Try asking about Shorya, members, Nalle Log, GC rules or tell me to make a joke!";
+}
+
+function sendMessage(){
+const text=aiInput.value.trim();
+if(!text)return;
+
+addMessage(text,"user");
+aiInput.value="";
+
+const reply=getAIReply(text);
+setTimeout(()=>addMessage(reply,"bot"),250);
+}
+
+function quickAsk(question){
+aiInput.value=question;
+sendMessage();
+}
+
+aiInput.addEventListener("keydown",function(event){
+if(event.key==="Enter"){
+event.preventDefault();
+sendMessage();
+}
 });
 </script>
 
